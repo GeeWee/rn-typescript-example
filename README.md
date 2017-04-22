@@ -2,18 +2,18 @@
 (All of this is on android, haven't touched the ios files)
 
 If you try to import some-component.tsx from index.android.tsx with the following line
-´import { SomeComponent } from './some-component';´
+`import { SomeComponent } from './some-component';`
 
 You get the following error from haul
-´ERROR in ./src/index.android.tsx
+`ERROR in ./src/index.android.tsx
  Module not found: Error: Can't resolve './some-component' in 'C:\Users\gusta\Documents\rn-typescript-example\src'
   @ ./src/index.android.tsx 15:23-50
   @ multi ./~/haul-cli/src/utils/polyfillEnvironment.js ./src/index.android.tsx
-´
+`
 (TSC gives no errors when compiling this)
 
 if you try with the file extension, as:
-´import { SomeComponent } from './some-component.tsx';´
+`import { SomeComponent } from './some-component.tsx';`
 Haul works fine, but react native crashes runtime with *undefined is not an object*
 
 # RN + Typescript
