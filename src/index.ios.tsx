@@ -7,6 +7,7 @@ import {
 
 export default class badgeExplorerTS extends React.Component<{}, {}> {
     render() {
+        console.log('weee');
         return (
             <View
                 style={{

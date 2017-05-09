@@ -6,8 +6,17 @@ import {
 } from 'react-native';
 import { SomeComponent } from './some-component';
 
-export default class badgeExplorerTS extends React.Component<{}, {}> {
+interface Props {
+    foo: string,
+    bar: number
+}
+
+export default class badgeExplorerTS extends React.Component<Props, {}> {
     render() {
+        console.log('weee');
+        const hi = 3;
+        const xxx = hi + 5;
+        
         return (
             <SomeComponent/>
         )
