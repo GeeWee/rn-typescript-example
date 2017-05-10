@@ -9,9 +9,6 @@ module.exports = ({ platform }, { module, resolve }) => ({
 				use: [
 					{
 						loader: 'babel-loader',
-						options: {
-							presets: ['es2015']
-						},
 					},
 					{
 						loader: 'ts-loader'
