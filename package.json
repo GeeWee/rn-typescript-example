@@ -39,14 +39,7 @@
 			"json"
 		],
 		"globals": {
-			"__DEV__": true,
-			"__TS_CONFIG__" : {
-				"jsx": "react",
-				"allowSyntheticDefaultImports": true,
-				"target": "es2015",
-				"moduleResolution": "node",
-				"inlineSourceMap": true
-			}
+			"__DEV__": true
 		}
 	}
 }
