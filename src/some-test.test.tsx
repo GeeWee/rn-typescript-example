@@ -13,9 +13,9 @@ describe('Basic breakpoints and sourcemaps', () => {
 		const x = 2;
 		let y = 3;
 		y = 3;
-		y = 3;
-		y = 3;
-		y = 3;
+		y = 4;
+		y = 5;
+		y = 6;
 		y = 3;
 		let z = x + y;
 		//debugger;
