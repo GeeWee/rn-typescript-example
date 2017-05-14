@@ -1,5 +1,5 @@
 {
-	"name": "badgeExplorerTS",
+	"name": "badgeexplorerts",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
@@ -40,9 +40,9 @@
 		],
 		"globals": {
 			"__DEV__": true,
-			"__TS_CONFIG__":{
+			"__TS_CONFIG__": {
 				"jsx": "react",
-				//"allowSyntheticDefaultImports": true,
+				"allowSyntheticDefaultImports": true,
 				"target": "es2015",
 				"moduleResolution": "node",
 				"inlineSourceMap": true

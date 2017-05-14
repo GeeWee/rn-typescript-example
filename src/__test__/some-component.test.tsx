@@ -8,6 +8,7 @@ describe('Basic breakpoints and sourcemaps', () => {
 	it('Should show you the value of the variables the whole way through', () => {
 		const x = 2;
 		let y = 3;
+		debugger;
 		let z = x + y;
 		expect(z).toEqual(5);
 	});
