@@ -78,7 +78,7 @@ describe('Generics', () => {
 		
 		
 		expect(action(payload)).toEqual(expectedObject); // action
-		expect(reducer(undefined, (initAction as any))).toEqual(initialState); //initial state
+		expect(reducer(undefined, initAction)).toEqual(initialState); //initial state
 		expect(reducer(undefined, actionToDispatch)).toEqual(payload); //initial state
 	});
 	
@@ -99,7 +99,7 @@ describe('Generics', () => {
 		};
 		
 		expect(action(payload)).toEqual(expectedObject); // action
-		expect(reducer(undefined, (initAction as any))).toEqual(initialState); //initial state
+		expect(reducer(undefined, initAction)).toEqual(initialState); //initial state
 		expect(reducer(undefined, actionToDispatch)).toEqual(payload); //initial state
 	});
 	
@@ -128,8 +128,7 @@ describe('Generics', () => {
 		};
 		
 		expect(action(payload)).toEqual(expectedObject); // action
-		expect(reducer(undefined, (initAction as any))).toEqual(initialState); //initial state
+		expect(reducer(undefined, initAction)).toEqual(initialState); //initial state
 		expect(reducer(undefined, actionToDispatch)).toEqual(payload); //initial state
-	});
 	});
 });

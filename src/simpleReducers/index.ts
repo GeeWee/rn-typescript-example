@@ -18,7 +18,7 @@ function createStandardAction<StateType>(actionName: string){
 }
 
 function createStandardReducer<StateType>(actionName: string, initialState: StateType){
-	return (state: StateType = initialState, action: StandardAction<StateType>) => {
+	return (state: StateType = initialState, action: StandardAction) => {
 		if (action.type === actionName){
 			return action.payload;
 		}
@@ -27,7 +27,7 @@ function createStandardReducer<StateType>(actionName: string, initialState: Stat
 }
 
 
-interface StandardAction<StateType> {
+interface StandardAction {
 	type: string,
-	payload: StateType
+	payload: any
 }
