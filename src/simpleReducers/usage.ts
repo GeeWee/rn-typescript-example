@@ -1,4 +1,4 @@
-import { createReducerActionPair } from './index';
+import { createSimpleReducerActionPair } from './index';
 /**
  * TODO: Describe file contents
  */
@@ -9,7 +9,7 @@ import { createReducerActionPair } from './index';
 const FOO_ACTION = "foo";
 const initialState = 3;
 //This creates an action and a reducer, that only takes numbers, because initialState is a number
-const {action: fooAction, reducer: fooReducer} = createReducerActionPair(FOO_ACTION, initialState);
+const {action: fooAction, reducer: fooReducer} = createSimpleReducerActionPair(FOO_ACTION, initialState);
 
 fooAction(3); //Yep!
 fooAction('foo'); //Error - foo is not a number
@@ -20,9 +20,9 @@ export {fooAction, fooReducer}; //Easy export too!
 //Also works with other types, numbers, arrays, objects, etc.
 const BAR_ACTION = "bar";
 const initalStringState = 'someNumber';
-const {action: barAction, reducer: barReducer} = createReducerActionPair(BAR_ACTION, initalStringState);
+const {action: barAction, reducer: barReducer} = createSimpleReducerActionPair(BAR_ACTION, initalStringState);
 
 barAction('foo'); //Yay
 barAction(3); //Error - 3 is not a string
 
-
+//TODO typecheck the arrayreducers

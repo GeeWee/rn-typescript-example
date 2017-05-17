@@ -2,13 +2,13 @@
  * TODO: Describe file contents
  */
 
-export function createReducerActionPair<StateType>(actionName: string, defaultState: StateType){
+export function createSimpleReducerActionPair<StateType>(actionName: string, initialState: StateType){
 	return {
-		reducer: createStandardReducer<StateType>(actionName, defaultState),
+		reducer: createStandardReducer<StateType>(actionName, initialState),
 		action: createStandardAction<StateType>(actionName),
 	}
-
 }
+
 
 function createStandardAction<StateType>(actionName: string){
 	return (payload: StateType) => ({
@@ -18,7 +18,7 @@ function createStandardAction<StateType>(actionName: string){
 }
 
 function createStandardReducer<StateType>(actionName: string, initialState: StateType){
-	return (state: StateType = initialState, action: StandardAction) => {
+	return (state: StateType = initialState, action: UntypedAction) => {
 		if (action.type === actionName){
 			return action.payload;
 		}
@@ -26,8 +26,29 @@ function createStandardReducer<StateType>(actionName: string, initialState: Stat
 	}
 }
 
+export function createArrayAppendReducerActionPair<StateType>(actionName: string, initialState : StateType[]){
+	return {
+		reducer: createArrayAppendReducer<StateType>(actionName, initialState),
+		action: createStandardAction<StateType[]>(actionName),
+	}
+}
 
-interface StandardAction {
+function createArrayAppendReducer<StateType>(actionName: string, initialState: StateType[]){
+	return (state: StateType[] = initialState, action: UntypedAction) => {
+		if (action.type === actionName){
+			return [...state, ...action.payload];
+		}
+		return state;
+	}
+}
+
+
+interface TypedAction<StateType> {
 	type: string,
-	payload: any
+	payload: StateType
+}
+
+interface UntypedAction {
+	type: string,
+	payload: any,
 }

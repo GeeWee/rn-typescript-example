@@ -1,4 +1,4 @@
-import { createReducerActionPair } from '../index';
+import { createSimpleReducerActionPair } from '../index';
 /**
  * TODO: Describe file contents
  */
@@ -14,7 +14,7 @@ describe('String reducer', () => {
 	it('Should return a function ', () => {
 		const actionName = "FOO";
 		const initialState = "initialStateOrSomeOtherString";
-		const reducer = createReducerActionPair(actionName, initialState).reducer;
+		const reducer = createSimpleReducerActionPair(actionName, initialState).reducer;
 		
 		expect(typeof reducer).toEqual("function");
 	});
@@ -22,7 +22,7 @@ describe('String reducer', () => {
 	it('Should return a reducer that dont respond to random anctions', () => {
 		const actionName = "FOO";
 		const initialState = "initialStateOrSomeOtherString";
-		const reducer = createReducerActionPair(actionName, initialState).reducer;
+		const reducer = createSimpleReducerActionPair(actionName, initialState).reducer;
 
 		expect(reducer(undefined, initAction)).toEqual(initialState)
 	});
@@ -35,21 +35,21 @@ describe('String reducer', () => {
 			payload
 		};
 		const initialState = "initialStateOrSomeOtherString";
-		const reducer = createReducerActionPair(actionName, initialState).reducer;
+		const reducer = createSimpleReducerActionPair(actionName, initialState).reducer;
 		expect(reducer(undefined, action)).toEqual(payload)
 	});
 });
 
 describe('String action', () => {
 	it('Should return function', () => {
-		const action = createReducerActionPair('foo', 'bar').action;
+		const action = createSimpleReducerActionPair('foo', 'bar').action;
 		expect(typeof action).toEqual("function");
 	});
 	
 	it('Should return a function that takes one payload and returns an object', () => {
 		const actionName = "FOO";
 		const payload =  "somePayload";
-		const action = createReducerActionPair(actionName, "").action;
+		const action = createSimpleReducerActionPair(actionName, "").action;
 		const expectedObject = {
 			type: actionName,
 			payload,
@@ -59,12 +59,25 @@ describe('String action', () => {
 	});
 });
 
+
+describe('Action and reducers together', () => {
+	it('Should react to its own action', () => {
+		const actionName = "SOME_ACTION_NAME";
+		const payload =  3;
+		const initialState = 234;
+		const {reducer, action} = createSimpleReducerActionPair(actionName, initialState);
+		
+		expect(reducer(undefined, initAction)).toEqual(initialState);
+		expect(reducer(undefined, action(payload))).toEqual(payload);
+	});
+});
+
 describe('Generics', () => {
 	it('Should work with numbers', () => {
 		const actionName = "FOO";
 		const payload =  3;
 		const initialState = 234;
-		const {reducer, action} = createReducerActionPair(actionName, initialState);
+		const {reducer, action} = createSimpleReducerActionPair(actionName, initialState);
 		
 		const expectedObject = {
 			type: actionName,
@@ -86,7 +99,7 @@ describe('Generics', () => {
 		const actionName = "FOO";
 		const payload = [3];
 		const initialState = [234, 234];
-		const {reducer, action} = createReducerActionPair(actionName, initialState);
+		const {reducer, action} = createSimpleReducerActionPair(actionName, initialState);
 		
 		const expectedObject = {
 			type: actionName,
@@ -115,7 +128,7 @@ describe('Generics', () => {
 			foo: 3,
 			someString: 'hej'
 		};
-		const {reducer, action} = createReducerActionPair(actionName, initialState);
+		const {reducer, action} = createSimpleReducerActionPair(actionName, initialState);
 		
 		const expectedObject = {
 			type: actionName,
