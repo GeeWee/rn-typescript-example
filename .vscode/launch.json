@@ -10,8 +10,6 @@
             "cwd": "${workspaceRoot}",
             "console": "integratedTerminal",
             "sourceMaps": true,
-            "smartStep": true
-            //"outFiles": 
         }
     ]
 }

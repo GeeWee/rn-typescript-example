@@ -18,7 +18,7 @@ describe('Basic breakpoints and sourcemaps', () => {
 		y = 6;
 		y = 3;
 		let z = x + y;
-		//debugger;
+		debugger;
 		const foo = 34;
 		expect(z).toEqual(5);
 	});

@@ -4,11 +4,8 @@
 
 
         "allowSyntheticDefaultImports": true,
-        //If this is true, the tests work, but the breakpoints do not.
-        //If it is false, the breakpoints do not work, but the tests do.
         "target": "es2015",
         "moduleResolution": "node",
-        //"sourceMap": true
         "inlineSourceMap": true
     },
     "exclude": [
